@@ -1,6 +1,5 @@
 import threading
 import configparser
-import time
 
 from wxauto import WeChat
 
@@ -10,17 +9,19 @@ from wx_sender import WxSender
 
 #等待时间
 wait = 1
-# 监听的好友列表
 
 config = configparser.ConfigParser()
 config.read('config.ini', encoding='utf-8')
 
 
-api_key = config.get('DEFAULT','api_key')
-base_url = config.get('DEFAULT','base_url')
-model = config.get('DEFAULT','model')
 listen_friends = [item.strip() for item in config.get('DEFAULT','listen_friends').split(',')]
 system_prompt = config.get('DEFAULT','system_prompt')
+
+ai_type = config.get('DEFAULT','ai_type')
+
+api_key = config.get(ai_type,'api_key')
+base_url = config.get(ai_type,'base_url')
+model = config.get(ai_type,'model')
 
 
 
