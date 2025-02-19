@@ -33,7 +33,7 @@ class WxSender(threading.Thread):
         msgs = self.msg_dic[who][1:]
         res = ''
         for msg in msgs:
-            if msg.startswith('[语言'):
+            if msg.startswith('[语音'):
                 continue
             if msg.startswith('[动画'):
                 continue
